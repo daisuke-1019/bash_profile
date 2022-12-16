@@ -1,7 +1,6 @@
-###シェル###
+### shell ###
 export BASH_SILENCE_DEPRECATION_WARNING=1
-
-##git##
+  ## git ##
 prompt_git() {
 	local branchName='';
 
@@ -18,15 +17,30 @@ prompt_git() {
 		return;
 	fi;
 }
+  ##prompt##
 PS1="[\d \t] \[\e[34m\]\W\[\e[36m\]\$(prompt_git)\[\e[0m\] \$";
 export PS1;
 
-###java###
+### alias ###
+alias ls='ls --color -F'
+alias ll='ls -l'
+alias edit='open -a "Visual Studio Code"'
+alias gitbr='git branch'
+alias gitch='git checkout'
+alias gitadd='git add'
+alias gitcom='git commit -m'
+alias gitpush='git push -u origin'
+alias gitpull='git pull origin'
+alias setprofile='vi ~/.bash_profile'
+alias finprofile='. ~/.bash_profile'
+alias nl="nl -b a -s ': '"
+
+### java ###
 export _JAVA_OPTIONS="-Dfile.encoding=UTF-8"
 export JAVA_HOME=`/usr/libexec/java_home -v "17"`
 #export JAVA_HOME=`/usr/libexec/java_home -v "19"`
 
-###python###
+### python ###
 if [ -d "$HOME/.pyenv" ]
 then
   export PYENV_ROOT="$HOME/.pyenv"
@@ -52,26 +66,8 @@ then
   if [ ! $? == 0 ] ; then PATH=$SVN_HOME/bin:$PATH ; fi
 fi
 
-###alias###
-alias ls='ls --color -F'
-alias ll='ls -l'
-alias edit='open -a "Visual Studio Code"'
-alias gitbr='git branch'
-alias gitch='git checkout'
-alias gitadd='git add'
-alias gitcom='git commit -m'
-alias gitpush='git push -u origin'
-alias gitpull='git pull origin'
-alias setprofile='vi ~/.bash_profile'
-alias finprofile='. ~/.bash_profile'
-alias nl="nl -b a -s ': '"
-
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-###git###
-
-
 
 # Added by Toolbox App
 export PATH="$PATH:/Users/daisuke/Library/Application Support/JetBrains/Toolbox/scripts"
